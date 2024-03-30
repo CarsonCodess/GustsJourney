@@ -23,7 +23,7 @@ public class WindObject : MonoBehaviour
         else if (Input.GetMouseButton(0) && _isDragging)
         {
             Vector2 delta = Input.mousePosition - _lastMousePosition;
-            if (delta.magnitude > 0)
+            if (delta.normalized.magnitude > 0.25f)
             {
                 GameManager.Instance.WindDirection = delta.normalized;
                 _lastMousePosition = Input.mousePosition;
