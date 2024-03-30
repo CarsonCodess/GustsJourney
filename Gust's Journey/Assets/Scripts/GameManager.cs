@@ -6,13 +6,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Vector2 defaultWindDirection;
     [SerializeField] private Vector2 windDirectionChangeRate = new Vector2(0.5f, 2f);
 
-    public Vector2 WindDirection { get; private set; }
+    public Vector2 WindDirection { get; set; }
 
     protected override void Awake()
     {
         base.Awake();
         WindDirection = defaultWindDirection;
-        InvokeRepeating(nameof(ChangeWindDirection), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y));
+        //InvokeRepeating(nameof(ChangeWindDirection), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y));
     }
 
     private void ChangeWindDirection()
