@@ -602,9 +602,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1158853076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaafc4cf0fd784244b889aafa0dd7624, type: 3}
+  m_Script: {fileID: 11500000, guid: 38259eee9d8fa274f8acd111f2367a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layer1: {fileID: 1090374708}
+  layer2: {fileID: 263478459}
+  scrollSpeed: 1
 --- !u!4 &1158853078
 Transform:
   m_ObjectHideFlags: 0
@@ -5829,10 +5832,10 @@ BoxCollider2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1158853078}
   - {fileID: 1920941556}
   - {fileID: 1587549358}
   - {fileID: 579994414}
   - {fileID: 734614295}
   - {fileID: 1171717482}
   - {fileID: 1772273058}
+  - {fileID: 1158853078}
