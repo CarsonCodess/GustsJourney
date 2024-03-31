@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class WindObject : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float baseSpeed = 2500;
+    [SerializeField] private float strongWindSpeed = 5000;
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -19,6 +20,7 @@ public class WindObject : MonoBehaviour
 
     private void Move()
     {
-        _rb.AddForce(new Vector2(GameManager.Instance.WindDirection.x * speed * Time.deltaTime, GameManager.Instance.WindDirection.y * speed * Time.deltaTime));
+        var speed = Input.GetKey(KeyCode.F) || Input.GetMouseButton(1) ? strongWindSpeed : baseSpeed;
+        _rb.velocity = new Vector2(GameManager.Instance.WindDirection.x * speed * Time.deltaTime, GameManager.Instance.WindDirection.y * speed * Time.deltaTime);
     }
 }
