@@ -12,7 +12,17 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         WindDirection = defaultWindDirection;
-        //InvokeRepeating(nameof(ChangeWindDirection), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y));
+        StartAutoWindChange();
+    }
+
+    public void StartAutoWindChange()
+    {
+        InvokeRepeating(nameof(ChangeWindDirection), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y));
+    }
+
+    public void StopAutoWindChange()
+    {
+        CancelInvoke();
     }
 
     private void ChangeWindDirection()
