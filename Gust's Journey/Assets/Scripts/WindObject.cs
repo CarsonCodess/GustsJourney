@@ -11,7 +11,7 @@ public class WindObject : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _rb.gravityScale = Random.Range(0.75f, 1.5f);
+        _rb.gravityScale = Random.Range(0.5f, 1.75f);
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class WindObject : MonoBehaviour
     {
         var strongWind = Input.GetKey(KeyCode.F) || Input.GetMouseButton(1);
         var speed = strongWind ? strongWindSpeed : baseSpeed;
-        speed = Random.Range(speed - 1000, speed + 1000);
+        speed = Random.Range(speed - 2000, speed + 2500);
         _rb.velocity = new Vector2(GameManager.Instance.WindDirection.x * speed * Time.deltaTime, GameManager.Instance.WindDirection.y * speed * Time.deltaTime);
         if (sway)
         {

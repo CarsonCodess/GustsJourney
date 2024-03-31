@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+
     [SerializeField] private Vector2 defaultWindDirection;
     [SerializeField] private Vector2 windDirectionChangeRate = new Vector2(0.5f, 2f);
 
