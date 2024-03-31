@@ -369,7 +369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1000
-  vertWind: 500
 --- !u!1 &566085496
 GameObject:
   m_ObjectHideFlags: 0

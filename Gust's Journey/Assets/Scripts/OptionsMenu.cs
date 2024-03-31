@@ -1,5 +1,8 @@
+using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -10,13 +13,13 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private float cursorIncrement = 100f;
     [SerializeField] private float cursorMax = 100f;
     [SerializeField] private int cursorMaxElements = 3;
+    [SerializeField] private Toggle crtToggle;
+    [SerializeField] private RectTransform titleScreen;
 
     private int _cursorIndex;
 
-    private void Awake()
+    public void OnEnable()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         _cursorIndex = 0;
         cursor.anchoredPosition = new Vector2(_cursorIndex == 0 ? -250 : -175, cursorMax - _cursorIndex * cursorIncrement);
     }
@@ -38,10 +41,18 @@ public class OptionsMenu : MonoBehaviour
             cursor.anchoredPosition = new Vector2(_cursorIndex == 0 ? -250 : -175, cursorMax - _cursorIndex * cursorIncrement);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) ||
-            Input.GetKeyDown(KeyCode.RightAlt))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            // Do something like pop up a menu
+            if (_cursorIndex == 0)
+            {
+                crtToggle.OnSubmit(new BaseEventData(null));
+            }
+            else if (_cursorIndex == 1)
+            {
+                titleScreen.gameObject.SetActive(true);
+                titleScreen.DOAnchorPosY(0f, 1f).SetEase(Ease.OutCubic);
+                ((RectTransform) transform).DOAnchorPosY(2000f, 0.75f).SetEase(Ease.OutCubic).OnComplete(() => gameObject.SetActive(false));
+            }
         }
     }
 }

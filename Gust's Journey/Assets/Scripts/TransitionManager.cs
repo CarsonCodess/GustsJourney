@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,5 +22,10 @@ public class TransitionManager : Singleton<TransitionManager>
             SceneManager.LoadScene(sceneName);
             transitionMaterial.DOFloat(0.5f, "_Value", speed).SetEase(easing);
         });
+    }
+    
+    public void StartTransitionQuit()
+    {
+        transitionMaterial.DOFloat(0f, "_Value", speed).SetEase(easing).OnComplete(Application.Quit);
     }
 }

@@ -830,7 +830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &537017863
@@ -1488,7 +1488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2000}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775340826
@@ -1510,6 +1510,8 @@ MonoBehaviour:
   cursorIncrement: 100
   cursorMax: 50
   cursorMaxElements: 2
+  crtToggle: {fileID: 1290201796}
+  titleScreen: {fileID: 1965948152}
 --- !u!1 &776467416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1918,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 638573609}
-  toggleTransition: 1
+  toggleTransition: 0
   graphic: {fileID: 587015155}
   m_Group: {fileID: 0}
   onValueChanged:
@@ -2351,6 +2353,8 @@ MonoBehaviour:
   titleText: {fileID: 1964566810}
   titleScreenMoveRange: 0.05
   titleScreenMoveSpeed: 2
+  mainSceneName: Tutorial1
+  optionsMenu: {fileID: 775340825}
 --- !u!1 &2038437286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,7 +2419,7 @@ MonoBehaviour:
   transitionMaterial: {fileID: 2100000, guid: a7d55068c9bec5944a82a7004008b3d9, type: 2}
   speed: 1
   easing: 15
-  debug: 1
+  debug: 0
 --- !u!1 &2136336746
 GameObject:
   m_ObjectHideFlags: 0
