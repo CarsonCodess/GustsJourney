@@ -2,10 +2,13 @@ using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
+    [SerializeField] private Volume volume;
     [SerializeField] private RectTransform cursor;
     [SerializeField] private RectTransform titleText;
     [SerializeField] private float titleScreenMoveRange = 10f;
@@ -46,6 +49,20 @@ public class OptionsMenu : MonoBehaviour
             if (_cursorIndex == 0)
             {
                 crtToggle.OnSubmit(new BaseEventData(null));
+                if (crtToggle.isOn)
+                {
+                    volume.profile.TryGet(typeof(FilmGrain), out FilmGrain filmGrain);
+                    volume.profile.TryGet(typeof(PaniniProjection), out PaniniProjection paniniProjection);
+                    filmGrain.intensity.value = 0.2f;
+                    paniniProjection.distance.value = 1f;
+                }
+                else
+                {
+                    volume.profile.TryGet(typeof(FilmGrain), out FilmGrain filmGrain);
+                    volume.profile.TryGet(typeof(PaniniProjection), out PaniniProjection paniniProjection);
+                    filmGrain.intensity.value = 0f;
+                    paniniProjection.distance.value = 0f;
+                }
             }
             else if (_cursorIndex == 1)
             {

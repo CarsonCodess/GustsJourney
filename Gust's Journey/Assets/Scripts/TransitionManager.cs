@@ -24,6 +24,15 @@ public class TransitionManager : Singleton<TransitionManager>
         });
     }
     
+    public void StartTransition(int buildIndex)
+    {
+        transitionMaterial.DOFloat(0f, "_Value", speed).SetEase(easing).OnComplete(() =>
+        {
+            SceneManager.LoadScene(buildIndex);
+            transitionMaterial.DOFloat(0.5f, "_Value", speed).SetEase(easing);
+        });
+    }
+    
     public void StartTransitionQuit()
     {
         transitionMaterial.DOFloat(0f, "_Value", speed).SetEase(easing).OnComplete(Application.Quit);

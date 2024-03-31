@@ -46,7 +46,12 @@ public class Menu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_cursorIndex == 0)
+            {
                 TransitionManager.Instance.StartTransition(mainSceneName);
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+                enabled = false;
+            }
             else if (_cursorIndex == 1)
             {
                 optionsMenu.gameObject.SetActive(true);

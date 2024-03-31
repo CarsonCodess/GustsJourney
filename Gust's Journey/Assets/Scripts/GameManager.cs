@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Vector2 windDirectionChangeRate = new Vector2(0.5f, 2f);
 
     public Vector2 WindDirection { get; set; }
+    public bool IsDragging { get; set; }
 
     protected override void Awake()
     {
@@ -18,11 +19,13 @@ public class GameManager : Singleton<GameManager>
 
     public void StartAutoWindChange()
     {
+        IsDragging = false;
         InvokeRepeating(nameof(ChangeWindDirection), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y), Random.Range(windDirectionChangeRate.x, windDirectionChangeRate.y));
     }
 
     public void StopAutoWindChange()
     {
+        IsDragging = true;
         CancelInvoke();
     }
 
