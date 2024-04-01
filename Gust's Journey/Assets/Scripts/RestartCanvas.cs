@@ -11,6 +11,8 @@ public class RestartCanvas : MonoBehaviour
 
     private void SceneLoad(Scene scene, LoadSceneMode mode)
     {
+        if(!transform)
+            return;
         GetComponent<Canvas>().worldCamera = FindObjectOfType<Camera>();
         transform.GetChild(0).gameObject.SetActive(scene.name != "End" && scene.name != "Menu");
     }
