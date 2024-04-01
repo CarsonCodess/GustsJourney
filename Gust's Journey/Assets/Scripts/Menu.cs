@@ -43,7 +43,7 @@ public class Menu : MonoBehaviour
             cursor.anchoredPosition = new Vector2(_cursorIndex == 1 ? -250 : -175, 100 - (_cursorIndex + 0) * 100);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetMouseButtonUp(0))
         {
             if (_cursorIndex == 0)
             {

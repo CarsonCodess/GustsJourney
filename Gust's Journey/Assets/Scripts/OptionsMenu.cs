@@ -44,7 +44,7 @@ public class OptionsMenu : MonoBehaviour
             cursor.anchoredPosition = new Vector2(_cursorIndex == 0 ? -250 : -175, cursorMax - _cursorIndex * cursorIncrement);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetMouseButtonUp(0))
         {
             if (_cursorIndex == 0)
             {
